@@ -515,6 +515,23 @@ dump."
 
   (fset 'evil-visual-update-x-selection 'ignore)
 
+  (spacemacs|diminish which-key-mode)
+  (spacemacs|diminish spacemacs-whitespace-cleanup-mode)
+  (spacemacs|diminish hungry-delete-mode)
+  (spacemacs|diminish hybrid-mode)
+
+  (spacemacs|add-company-backends :modes text-mode)
+
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
+  (global-hungry-delete-mode t)
+
+  ;; Spacemacs can be used as the $EDITOR (or $GIT_EDITOR) for editing git commits messages.
+  ;; (global-git-commit-mode t)
+
+  (setq delete-by-moving-to-trash nil)
+
+  (setq inhibit-compacting-font-caches t)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
