@@ -40,19 +40,15 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (ivy :variables ivy-enable-advanced-buffer-information t)
-     (auto-completion :variables auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-snippets-in-popup t)
      (better-defaults :veriables
                       better-defaults-move-to-beginning-of-code-first t
                       better-defaults-move-to-end-of-code-first t)
-     (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (ranger :variables ranger-override-dired t)
-     prodigy
+     colors
      restclient
      neotree
-     (shell :veriables shell-default-height 30
-            shell-default-position 'bottom)
-
+     (spacemacs-layouts :variables layouts-enable-autosave nil
+                        layouts-autosave-delay 300)
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
@@ -63,17 +59,33 @@ This function should only modify configuration layer settings."
      (version-control :variables version-control-diff-tool 'diff-hl
                       version-control-diff-side 'left
                       version-control-global-margin t)
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     (auto-completion :variables auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t
+                      :disabled-for org markdown)
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
           osx-command-as 'super)
 
-     emacs-lisp
+     (shell :veriables shell-default-height 30
+            shell-default-position 'bottom)
+
+     web-beautify
+     lsp
+
+     (markdown :variables markdown-live-preview-engine 'vmd)
      (org :veriables org-want-todo-bindings t)
 
+     emacs-lisp
      shell-scripts
      (sql :variables sql-capitalize-keywords t
           sql-auto-indent nil)
      protobuf
-     (java :variables java-backend 'meghanada)
+     yaml
+     (json :variables json-fmt-tool 'web-beautify
+           javascript-backend 'lsp)
+     (javascript :variables javascript-fmt-tool 'web-beautify)
+     (html :variables web-fmt-tool 'web-beautify)
+     (java :variables java-backend 'lsp)
      (scala :variables scala-indent:use-javadoc-style t
             scala-enable-eldoc t
             scala-auto-insert-asterisk-in-comments t
@@ -106,6 +118,10 @@ This function should only modify configuration layer settings."
                                     git-gutter+
                                     git-gutter-fringe
                                     git-gutter-fringe+
+                                    company-emacs-eclim
+                                    eclim
+                                    flycheck-eclim
+                                    meghanada
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
