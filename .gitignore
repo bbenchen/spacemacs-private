@@ -1,0 +1,9 @@
+# Mac
+*.DS_Store
+
+*.tmp
+*.bak
+*.swp
+
+logs
+*.log
