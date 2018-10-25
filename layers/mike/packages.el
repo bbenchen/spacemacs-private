@@ -16,6 +16,7 @@
     ranger
     fcitx
     cal-china-x
+    engine-mode
     ))
 
 ;; 优化ranger
@@ -85,4 +86,26 @@
             (append cal-china-x-important-holidays
                     cal-china-x-general-holidays))
 
+      )))
+
+;; 配置搜索引擎
+(defun mike/init-engine-mode ()
+  (use-package engine-mode
+    :ensure t
+    :config
+    (progn
+      (engine-mode t)
+      (engine/set-keymap-prefix (kbd "C-c s"))
+      (defengine baidu
+        "https://www.baidu.com/s?wd=%s"
+        :keybinding "b")
+      (defengine google
+        "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+        :keybinding "o")
+      (defengine github
+        "https://github.com/search?ref=simplesearch&q=%s"
+        :keybinding "g")
+      (defengine stack-overflow
+        "https://stackoverflow.com/search?q=%s"
+        :keybinding "s")
       )))
