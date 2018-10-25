@@ -17,6 +17,7 @@
     fcitx
     cal-china-x
     engine-mode
+    ensime
     ))
 
 ;; 优化ranger
@@ -109,3 +110,11 @@
         "https://stackoverflow.com/search?q=%s"
         :keybinding "s")
       )))
+
+(defun mike/post-init-ensime ()
+  (progn
+    (if (configuration-layer/layer-usedp 'ivy)
+        (setq ensime-search-interface 'ivy)
+      (setq ensime-search-interface 'helm))
+    (setq ensime-startup-notification nil)
+    ))
