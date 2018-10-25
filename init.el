@@ -513,6 +513,8 @@ dump."
     (doom-themes-neotree-config)
     (doom-themes-org-config))
 
+  (fset 'evil-visual-update-x-selection 'ignore)
+
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
