@@ -125,6 +125,11 @@ This function should only modify configuration layer settings."
                                     eclim
                                     flycheck-eclim
                                     meghanada
+                                    prettier-js
+                                    tern
+                                    tide
+                                    fancy-battery
+                                    doom-modeline
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
