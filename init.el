@@ -47,6 +47,9 @@ This function should only modify configuration layer settings."
      colors
      restclient
      neotree
+     (syntax-checking :variables syntax-checking-enable-by-default nil
+                      syntax-checking-enable-tooltips nil)
+     (spell-checking :variables spell-checking-enable-by-default nil)
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
      (git :variables
@@ -94,6 +97,10 @@ This function should only modify configuration layer settings."
             scala-auto-insert-asterisk-in-comments t
             scala-use-unicode-arrows t
             scala-auto-start-ensime nil)
+     (go :variables go-use-golangci-lint t
+         gofmt-command "goimports"
+         go-tab-width nil
+         go-backend 'lsp)
 
      mike
      (chinese :packages youdao-dictionary fcitx
