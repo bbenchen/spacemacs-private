@@ -84,6 +84,9 @@ This function should only modify configuration layer settings."
      (json :variables json-fmt-tool 'web-beautify
            javascript-backend 'lsp)
      (javascript :variables javascript-fmt-tool 'web-beautify)
+     (typescript :variables typescript-fmt-on-save t
+                 typescript-fmt-tool 'typescript-formatter
+                 typescript-backend 'lsp)
      (html :variables web-fmt-tool 'web-beautify)
      (java :variables java-backend 'lsp)
      (scala :variables scala-indent:use-javadoc-style t
