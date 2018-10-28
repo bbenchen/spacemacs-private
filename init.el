@@ -46,6 +46,7 @@ This function should only modify configuration layer settings."
      (ranger :variables ranger-override-dired t)
      colors
      restclient
+     multiple-cursors
      neotree
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
