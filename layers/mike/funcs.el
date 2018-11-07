@@ -21,3 +21,13 @@
              (y (+ (* 100 cycle) yy)))
         (diary-chinese-anniversary lunar-month lunar-day y mark))
     (diary-chinese-anniversary lunar-month lunar-day year mark)))
+
+(defun mike-evil-quick-replace (beg end)
+  (interactive "r")
+  (when (evil-visual-state-p)
+    (evil-exit-visual-state)
+    (let ((selection (regexp-quote (buffer-substring-no-properties beg end))))
+      (setq command-string (format "%%s/%s//g" selection))
+      (minibuffer-with-setup-hook
+          (lambda () (backward-char 2))
+        (evil-ex command-string)))))

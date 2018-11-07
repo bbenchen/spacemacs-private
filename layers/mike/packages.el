@@ -13,6 +13,7 @@
 
 (defconst mike-packages
   '(
+    evil
     ranger
     fcitx
     cal-china-x
@@ -20,6 +21,26 @@
     ensime
     org
     ))
+
+;; 优化evil
+(defun mike/post-init-evil ()
+  (progn
+    (setcdr evil-insert-state-map nil)
+    (define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+    (define-key evil-insert-state-map (kbd "C-z") 'evil-emacs-state)
+
+    ;; mimic "nzz" behaviou in vim
+    (defadvice evil-ex-search-next (after advice-for-evil-search-next activate)
+      (evil-scroll-line-to-center (line-number-at-pos)))
+    (defadvice evil-ex-search-previous (after advice-for-evil-search-previous activate)
+      (evil-scroll-line-to-center (line-number-at-pos)))
+
+    (define-key evil-visual-state-map (kbd "C-r") 'mike-evil-quick-replace)
+
+    )
+  )
+
 
 ;; 优化ranger
 (defun mike/post-init-ranger ()
