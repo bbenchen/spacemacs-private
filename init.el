@@ -564,6 +564,8 @@ dump."
   (setq delete-by-moving-to-trash nil)
 
   (setq inhibit-compacting-font-caches t)
+
+  (setq auto-save-default nil)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
