@@ -18,6 +18,7 @@
     cal-china-x
     engine-mode
     ensime
+    org
     ))
 
 ;; 优化ranger
@@ -118,3 +119,68 @@
       (setq ensime-search-interface 'helm))
     (setq ensime-startup-notification nil)
     ))
+
+(defun mike/post-init-org ()
+  (with-eval-after-load 'org
+    (setq spaceline-org-clock-p t)
+
+    ;; 加密文章，只支持gnupg 1.x
+    ;; http://coldnew.github.io/blog/2013/07/13_5b094.html
+    ;; org-mode 设定
+    (require 'org-crypt)
+    ;; 当被加密的部分要保存时，自动加密回去
+    (org-crypt-use-before-save-magic)
+    ;; 设定要加密的tag，目标为secret
+    (setq org-crypt-tag-matcher "secret")
+    ;; 避免secret这个tag被子项目继承，造成重复加密
+    ;; (但是子项目还是会被加密)
+    (setq org-tags-exclude-from-inheritance (quote ("secret")))
+    ;; 加密用的密钥
+    ;; 可以设定任何ID或设成nil来使用对称式加密 (symmetric encryption)
+    (setq org-crypt-key nil)
+
+    ;; 加密文件设定
+    (require 'epa-file)
+    (epa-file-enable)
+    (setq epa-file-select-keys 0)
+    (setq epa-file-cache-passphrase-for-symmetric-encryption t)
+
+    (defvar org-agenda-dir "" "gtd org files location")
+    (setq-default org-agenda-dir "~/Projects/personal/org")
+    (setq org-agenda-file-note (expand-file-name "notes.org" org-agenda-dir))
+    (setq org-agenda-file-gtd (expand-file-name "todo.org" org-agenda-dir))
+    (setq org-agenda-file-journal (expand-file-name "journal.org" org-agenda-dir))
+    (setq org-agenda-file-code-snippet (expand-file-name "snippet.org" org-agenda-dir))
+    (setq org-default-notes-file (expand-file-name "todo.org" org-agenda-dir))
+    (setq org-agenda-files (list org-agenda-dir))
+
+    (with-eval-after-load 'org-agenda
+      (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
+      (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
+        "." 'spacemacs/org-agenda-transient-state/body)
+      )
+
+    ;; the %i would copy the selected text into the template
+    ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
+    ;; add multi-file journal
+    (setq org-capture-templates
+          '(("t" "Todo" entry (file+headline org-agenda-file-gtd "Tasks")
+             "* TODO [#B] %?\n  %i\n"
+             :empty-lines 0)
+            ("n" "Notes" entry (file+headline org-agenda-file-note "Quick notes")
+             "* %?\n  %i\n %U"
+             :empty-lines 0)
+            ("s" "Code Snippet" entry (file org-agenda-file-code-snippet)
+             "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
+            ("w" "Work" entry (file+headline org-agenda-file-gtd "Project")
+             "* TODO [#A] %?\n  %i\n %U"
+             :empty-lines 0)
+            ("l" "Links" entry (file+headline org-agenda-file-note "Quick notes")
+             "* TODO [#C] %?\n  %i\n %a \n %U"
+             :empty-lines 0)
+            ("j" "Journal Entry"
+             entry (file+datetree org-agenda-file-journal)
+             "* %?"
+             :empty-lines 0)))
+    )
+  )
