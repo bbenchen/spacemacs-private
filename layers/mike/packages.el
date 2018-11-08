@@ -166,6 +166,10 @@
     (setq epa-file-select-keys 0)
     (setq epa-file-cache-passphrase-for-symmetric-encryption t)
 
+    (setq org-plantuml-jar-path
+          (expand-file-name "~/.spacemacs.d/plantuml.jar"))
+    (setq org-ditaa-jar-path "~/.spacemacs.d/ditaa.jar")
+
     (defvar org-agenda-dir "" "gtd org files location")
     (setq-default org-agenda-dir "~/Projects/personal/org")
     (setq org-agenda-file-note (expand-file-name "notes.org" org-agenda-dir))

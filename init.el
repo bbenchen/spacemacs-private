@@ -81,6 +81,8 @@ This function should only modify configuration layer settings."
 
      emacs-lisp
      shell-scripts
+     graphviz
+     plantuml
      (sql :variables sql-capitalize-keywords t
           sql-auto-indent nil)
      protobuf
