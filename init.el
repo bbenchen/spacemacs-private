@@ -71,6 +71,7 @@ This function should only modify configuration layer settings."
           osx-command-as 'super)
 
      (shell :veriables shell-default-height 30
+            shell-default-shell 'eshell
             shell-default-position 'bottom)
 
      web-beautify
