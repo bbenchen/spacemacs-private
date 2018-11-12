@@ -162,7 +162,6 @@
 
     ;; 加密文件设定
     (require 'epa-file)
-    (epa-file-enable)
     (setq epa-file-select-keys 0)
     (setq epa-file-cache-passphrase-for-symmetric-encryption t)
 
