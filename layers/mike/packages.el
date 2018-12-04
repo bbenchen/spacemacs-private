@@ -13,14 +13,16 @@
 
 (defconst mike-packages
   '(
-    evil
-    ranger
-    fcitx
-    cal-china-x
-    engine-mode
-    ensime
-    org
-    ))
+     evil
+     ranger
+     fcitx
+     cal-china-x
+     engine-mode
+     ensime
+     org
+     (company-english-helper :location (recipe :fetcher github :repo "manateelazycat/company-english-helper"))
+     (insert-translated-name :location (recipe :fetcher github :repo "manateelazycat/insert-translated-name"))
+     ))
 
 ;; 优化evil
 (defun mike/post-init-evil ()
@@ -57,10 +59,10 @@
     (defun my-ranger ()
       (interactive)
       (if golden-ratio-mode
-          (progn
-            (golden-ratio-mode -1)
-            (ranger)
-            (setq golden-ratio-previous-enable t))
+        (progn
+          (golden-ratio-mode -1)
+          (ranger)
+          (setq golden-ratio-previous-enable t))
         (progn
           (ranger)
           (setq golden-ratio-previous-enable nil))))
@@ -68,9 +70,9 @@
     (defun my-quit-ranger ()
       (interactive)
       (if golden-ratio-previous-enable
-          (progn
-            (ranger-close)
-            (golden-ratio-mode 1))
+        (progn
+          (ranger-close)
+          (golden-ratio-mode 1))
         (ranger-close)))
 
     (with-eval-after-load 'ranger
@@ -101,13 +103,13 @@
       (setq mark-holidays-in-calendar t)
       (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
       (setq cal-china-x-general-holidays '(
-                                           (holiday-lunar 1 15 "元宵节")
-                                           (holiday-lunar 7 7 "七夕节")
-                                           (holiday-lunar 9 9 "重阳节")
-                                           ))
+                                            (holiday-lunar 1 15 "元宵节")
+                                            (holiday-lunar 7 7 "七夕节")
+                                            (holiday-lunar 9 9 "重阳节")
+                                            ))
       (setq calendar-holidays
-            (append cal-china-x-important-holidays
-                    cal-china-x-general-holidays))
+        (append cal-china-x-important-holidays
+          cal-china-x-general-holidays))
 
       )))
 
@@ -136,7 +138,7 @@
 (defun mike/post-init-ensime ()
   (progn
     (if (configuration-layer/layer-usedp 'ivy)
-        (setq ensime-search-interface 'ivy)
+      (setq ensime-search-interface 'ivy)
       (setq ensime-search-interface 'helm))
     (setq ensime-startup-notification nil)
     ))
@@ -166,7 +168,7 @@
     (setq epa-file-cache-passphrase-for-symmetric-encryption t)
 
     (setq org-plantuml-jar-path
-          (expand-file-name "~/.spacemacs.d/plantuml.jar"))
+      (expand-file-name "~/.spacemacs.d/plantuml.jar"))
     (setq org-ditaa-jar-path "~/.spacemacs.d/ditaa.jar")
 
     (defvar org-agenda-dir "" "gtd org files location")
@@ -188,23 +190,31 @@
     ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
     ;; add multi-file journal
     (setq org-capture-templates
-          '(("t" "Todo" entry (file+headline org-agenda-file-gtd "Tasks")
-             "* TODO [#B] %?\n  %i\n"
-             :empty-lines 0)
-            ("n" "Notes" entry (file+headline org-agenda-file-note "Quick notes")
-             "* %?\n  %i\n %U"
-             :empty-lines 0)
-            ("s" "Code Snippet" entry (file org-agenda-file-code-snippet)
-             "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
-            ("w" "Work" entry (file+headline org-agenda-file-gtd "Project")
-             "* TODO [#A] %?\n  %i\n %U"
-             :empty-lines 0)
-            ("l" "Links" entry (file+headline org-agenda-file-note "Quick notes")
-             "* TODO [#C] %?\n  %i\n %a \n %U"
-             :empty-lines 0)
-            ("j" "Journal Entry"
-             entry (file+datetree org-agenda-file-journal)
-             "* %?"
-             :empty-lines 0)))
+      '(("t" "Todo" entry (file+headline org-agenda-file-gtd "Tasks")
+          "* TODO [#B] %?\n  %i\n"
+          :empty-lines 0)
+         ("n" "Notes" entry (file+headline org-agenda-file-note "Quick notes")
+           "* %?\n  %i\n %U"
+           :empty-lines 0)
+         ("s" "Code Snippet" entry (file org-agenda-file-code-snippet)
+           "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
+         ("w" "Work" entry (file+headline org-agenda-file-gtd "Project")
+           "* TODO [#A] %?\n  %i\n %U"
+           :empty-lines 0)
+         ("l" "Links" entry (file+headline org-agenda-file-note "Quick notes")
+           "* TODO [#C] %?\n  %i\n %a \n %U"
+           :empty-lines 0)
+         ("j" "Journal Entry"
+           entry (file+datetree org-agenda-file-journal)
+           "* %?"
+           :empty-lines 0)))
     )
   )
+
+(defun mike/init-company-english-helper ()
+  (use-package company-english-helper
+    :init))
+
+(defun mike/init-insert-translated-name ()
+  (use-package insert-translated-name
+    :init))
