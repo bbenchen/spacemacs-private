@@ -90,7 +90,8 @@ This function should only modify configuration layer settings."
      yaml
      (json :variables json-fmt-tool 'web-beautify
            javascript-backend 'lsp)
-     (javascript :variables javascript-fmt-tool 'web-beautify)
+     (javascript :variables javascript-fmt-tool 'web-beautify
+                 javascript-backend 'lsp)
      (typescript :variables typescript-fmt-on-save t
                  typescript-fmt-tool 'typescript-formatter
                  typescript-backend 'lsp)
