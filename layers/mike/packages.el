@@ -172,7 +172,7 @@
     (setq org-ditaa-jar-path "~/.spacemacs.d/ditaa.jar")
 
     (defvar org-agenda-dir "" "gtd org files location")
-    (setq-default org-agenda-dir "~/Projects/personal/org")
+    (setq-default org-agenda-dir "~/Documents/org")
     (setq org-agenda-file-note (expand-file-name "notes.org" org-agenda-dir))
     (setq org-agenda-file-gtd (expand-file-name "todo.org" org-agenda-dir))
     (setq org-agenda-file-journal (expand-file-name "journal.org" org-agenda-dir))
