@@ -76,6 +76,7 @@ This function should only modify configuration layer settings."
 
      web-beautify
      lsp
+     dap
 
      (markdown :variables markdown-live-preview-engine 'vmd)
      (org :veriables org-want-todo-bindings t)
