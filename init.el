@@ -136,6 +136,7 @@ This function should only modify configuration layer settings."
                                     git-gutter+
                                     git-gutter-fringe
                                     git-gutter-fringe+
+                                    magit-svn
                                     company-emacs-eclim
                                     eclim
                                     flycheck-eclim
