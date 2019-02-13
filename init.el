@@ -551,7 +551,7 @@ dump."
                         (font-spec :family "Microsoft Yahei" :size 12))))
 
   (when (package-installed-p 'doom-themes)
-    (doom-themes-neotree-config)
+    ;; (doom-themes-neotree-config)
     (doom-themes-org-config))
 
   (fset 'evil-visual-update-x-selection 'ignore)
