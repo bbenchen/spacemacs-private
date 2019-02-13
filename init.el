@@ -86,7 +86,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      shell-scripts
      graphviz
-     plantuml
+     (plantuml :variables plantuml-jar-path "~/.spacemacs.d/plantuml.jar")
      (sql :variables sql-capitalize-keywords t
           sql-auto-indent nil)
      protobuf
