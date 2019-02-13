@@ -109,6 +109,7 @@ This function should only modify configuration layer settings."
          gofmt-command "goimports"
          go-tab-width nil
          go-backend 'lsp)
+     (rust :variables rust-backend 'lsp)
 
      mike
      (chinese :packages youdao-dictionary fcitx
