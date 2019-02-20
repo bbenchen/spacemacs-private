@@ -14,6 +14,7 @@
 (defconst mike-packages
   '(
      evil
+     golden-ratio
      ranger
      fcitx
      cal-china-x
@@ -43,6 +44,12 @@
     )
   )
 
+(defun mike/post-init-golden-ratio ()
+  (with-eval-after-load 'golden-ratio
+    (dolist (mode '("dired-mode" "occur-mode"))
+      (add-to-list 'golden-ratio-exclude-modes mode))
+    (dolist (n '("COMMIT_EDITMSG"))
+      (add-to-list 'golden-ratio-exclude-buffer-names n))))
 
 ;; 优化ranger
 (defun mike/post-init-ranger ()
