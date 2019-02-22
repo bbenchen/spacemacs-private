@@ -57,11 +57,13 @@
   (progn
     (setq ranger-preview-file t)
 
-    (setq ranger-show-literal t)
+    (setq ranger-show-literal nil)
 
     (setq ranger-width-preview 0.55)
 
     (setq ranger-max-preview-size 1)
+
+    (setq ranger-dont-show-binary nil)
 
     (defun my-ranger ()
       (interactive)
