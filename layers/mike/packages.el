@@ -61,7 +61,7 @@
 
     (setq ranger-width-preview 0.55)
 
-    (setq ranger-max-preview-size 1)
+    (setq ranger-max-preview-size 4)
 
     (setq ranger-dont-show-binary nil)
 
