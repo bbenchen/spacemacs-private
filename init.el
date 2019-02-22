@@ -146,7 +146,6 @@ This function should only modify configuration layer settings."
                                     tern
                                     tide
                                     fancy-battery
-                                    doom-modeline
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -275,7 +274,8 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   ;; dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(doom :separator-scale 1.5)
    ;; dotspacemacs-mode-line-theme 'all-the-icons
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
@@ -557,7 +557,7 @@ dump."
     (setq dired-use-ls-dired t))
 
   (when (package-installed-p 'doom-themes)
-    ;; (doom-themes-neotree-config)
+    (doom-themes-neotree-config)
     (doom-themes-org-config))
 
   (fset 'evil-visual-update-x-selection 'ignore)
