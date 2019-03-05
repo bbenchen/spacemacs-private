@@ -176,6 +176,9 @@
     (setq epa-file-select-keys 0)
     (setq epa-file-cache-passphrase-for-symmetric-encryption t)
 
+    ;; 支持<s+TAB快速插入代码块
+    (require 'org-tempo)
+
     (setq org-plantuml-jar-path
       (expand-file-name "~/.spacemacs.d/plantuml.jar"))
     (setq org-ditaa-jar-path "~/.spacemacs.d/ditaa.jar")
