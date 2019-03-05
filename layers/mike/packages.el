@@ -67,6 +67,7 @@
 
     (defun my-ranger ()
       (interactive)
+      (setq pre-header-line-format header-line-format)
       (if golden-ratio-mode
         (progn
           (golden-ratio-mode -1)
@@ -82,7 +83,8 @@
         (progn
           (ranger-close)
           (golden-ratio-mode 1))
-        (ranger-close)))
+        (ranger-close))
+      (setq header-line-format pre-header-line-format))
 
     (with-eval-after-load 'ranger
       (progn
