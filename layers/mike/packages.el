@@ -14,6 +14,7 @@
 (defconst mike-packages
   '(
      evil
+     recentf
      golden-ratio
      ranger
      fcitx
@@ -43,6 +44,29 @@
 
     )
   )
+
+(defun mike/post-init-recentf ()
+  (progn
+    (setq recentf-exclude
+          '("COMMIT_MSG"
+            "COMMIT_EDITMSG"
+            "github.*txt$"
+            "/tmp/"
+            "/ssh:"
+            "/sudo:"
+            "/TAGS$"
+            "/GTAGS$"
+            "/GRAGS$"
+            "/GPATH$"
+            "\\.mkv$"
+            "\\.mp[34]$"
+            "\\.avi$"
+            "\\.pdf$"
+            "\\.sub$"
+            "\\.srt$"
+            "\\.ass$"
+            ".*png$"))
+    (setq recentf-max-saved-items 2048)))
 
 (defun mike/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
