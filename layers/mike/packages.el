@@ -89,9 +89,13 @@
 
     (setq ranger-dont-show-binary nil)
 
+    (setq ranger-excluded-extensions '("mkv" "iso" "mp4" "bin" "exe" "msi", "jar"))
+
+    (setq my-pre-header-line-format header-line-format)
+
     (defun my-ranger ()
       (interactive)
-      (setq pre-header-line-format header-line-format)
+      (setq my-pre-header-line-format header-line-format)
       (if golden-ratio-mode
         (progn
           (golden-ratio-mode -1)
@@ -108,7 +112,7 @@
           (ranger-close)
           (golden-ratio-mode 1))
         (ranger-close))
-      (setq header-line-format pre-header-line-format))
+      (setq header-line-format my-pre-header-line-format))
 
     (with-eval-after-load 'ranger
       (progn
