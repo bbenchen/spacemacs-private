@@ -32,6 +32,12 @@
           (lambda () (backward-char 2))
         (evil-ex command-string)))))
 
+(defun mike-remove-dos-eol ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
+
 (defun mike-insert-chrome-current-tab-url()
   "Get the URL of the active tab of the first window"
   (interactive)
