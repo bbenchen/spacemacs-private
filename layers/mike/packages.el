@@ -21,6 +21,8 @@
      cal-china-x
      engine-mode
      ensime
+     lsp-java
+     dap-mode
      org
      (company-english-helper :location (recipe :fetcher github :repo "manateelazycat/company-english-helper"))
      (insert-translated-name :location (recipe :fetcher github :repo "manateelazycat/insert-translated-name"))
@@ -181,6 +183,31 @@
       (setq ensime-search-interface 'helm))
     (setq ensime-startup-notification nil)
     ))
+
+(defun mike/post-init-lsp-java ()
+  ;; (require 'lsp-java-boot)
+
+  ;; to enable the lenses
+  ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+  ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+
+  (setq lombok-jar-path (expand-file-name "~/.spacemacs.d/lombok.jar"))
+
+  (setq lsp-java-vmargs (list "-Dfile.encoding=utf8"
+                              "-noverify"
+                              "-Xmx4G"
+                              "-XX:+UseG1GC"
+                              "-XX:+UseStringDeduplication"
+                              (concat "-javaagent:" lombok-jar-path)
+                              (concat "-Xbootclasspath/a:" lombok-jar-path)
+                              ))
+  )
+
+(defun mike/post-init-dap-mode ()
+  (setq dap-java-test-runner (concat
+                              (expand-file-name (locate-user-emacs-file "eclipse.jdt.ls/server/"))
+                              "test-runner/junit-platform-console-standalone.jar"))
+  )
 
 (defun mike/post-init-org ()
   (with-eval-after-load 'org
