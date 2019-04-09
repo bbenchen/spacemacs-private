@@ -53,6 +53,14 @@
       (remq 'process-kill-buffer-query-function
             kill-buffer-query-functions))
 
+(add-hook 'before-save-hook
+          (lambda ()
+            (when buffer-file-name
+              (let ((dir (file-name-directory buffer-file-name)))
+                (when (and (not (file-exists-p dir))
+                           (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
+                  (make-directory dir t))))))
+
 ;; 如果文件父目录不存在，则自动创建
 (defadvice find-file (before make-directory-maybe
                              (filename &optional wildcards) activate)

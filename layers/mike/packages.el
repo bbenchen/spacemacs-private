@@ -67,8 +67,9 @@
             "\\.sub$"
             "\\.srt$"
             "\\.ass$"
-            ".*png$"))
-    (setq recentf-max-saved-items 2048)))
+            ".*png$"
+            "persp-auto-save"))
+    (setq recentf-max-saved-items 1024)))
 
 (defun mike/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
