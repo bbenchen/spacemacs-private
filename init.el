@@ -75,6 +75,7 @@ This function should only modify configuration layer settings."
             shell-default-position 'bottom)
 
      web-beautify
+     import-js
      lsp
      dap
      docker
@@ -94,6 +95,7 @@ This function should only modify configuration layer settings."
      (json :variables json-fmt-tool 'web-beautify
            javascript-backend 'lsp)
      (javascript :variables javascript-fmt-tool 'web-beautify
+                 javascript-import-tool 'import-js
                  javascript-backend 'lsp)
      (typescript :variables typescript-fmt-on-save t
                  typescript-fmt-tool 'typescript-formatter
