@@ -192,6 +192,8 @@
   ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
   ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
 
+  (setq lsp-java-jdt-download-url "http://mirrors.ustc.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
+
   (setq lombok-jar-path (expand-file-name "~/.spacemacs.d/lombok.jar"))
 
   (setq lsp-java-vmargs (list "-Dfile.encoding=utf8"
@@ -202,6 +204,15 @@
                               (concat "-javaagent:" lombok-jar-path)
                               (concat "-Xbootclasspath/a:" lombok-jar-path)
                               ))
+
+  (setq lsp-java-trace-server "messages")
+
+  (setq lsp-java-save-actions-organize-imports t)
+
+  (setq lsp-java-completion-guess-method-arguments t)
+
+  (setq lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml")
+  (setq lsp-java-format-settings-profile "GoogleStyle")
   )
 
 (defun mike/post-init-dap-mode ()
