@@ -96,7 +96,8 @@ This function should only modify configuration layer settings."
            javascript-backend 'lsp)
      (javascript :variables javascript-fmt-tool 'web-beautify
                  javascript-import-tool 'import-js
-                 javascript-backend 'lsp)
+                 javascript-backend 'lsp
+                 javascript-fmt-on-save t)
      (typescript :variables typescript-fmt-on-save t
                  typescript-fmt-tool 'typescript-formatter
                  typescript-backend 'lsp)
