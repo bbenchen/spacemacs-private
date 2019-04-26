@@ -211,7 +211,7 @@
 
   (setq lsp-java-completion-guess-method-arguments t)
 
-  (setq lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml")
+  (setq lsp-java-format-settings-url (concat "file://" (expand-file-name "~/.spacemacs.d/eclipse-java-google-style.xml")))
   (setq lsp-java-format-settings-profile "GoogleStyle")
   )
 
