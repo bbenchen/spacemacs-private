@@ -107,7 +107,8 @@ This function should only modify configuration layer settings."
             scala-enable-eldoc t
             scala-auto-insert-asterisk-in-comments t
             scala-use-unicode-arrows t
-            scala-auto-start-ensime nil)
+            scala-backend 'scala-metals
+            scala-auto-start-backend t)
      (go :variables go-use-golangci-lint t
          gofmt-command "goimports"
          go-tab-width nil
@@ -149,6 +150,7 @@ This function should only modify configuration layer settings."
                                     tern
                                     tide
                                     fancy-battery
+                                    ensime
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
