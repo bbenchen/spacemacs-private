@@ -74,7 +74,7 @@ This function should only modify configuration layer settings."
             shell-default-shell 'eshell
             shell-default-position 'bottom)
 
-     web-beautify
+     prettier
      import-js
      lsp
      dap
@@ -92,16 +92,15 @@ This function should only modify configuration layer settings."
           sql-auto-indent nil)
      protobuf
      yaml
-     (json :variables json-fmt-tool 'web-beautify
-           javascript-backend 'lsp)
-     (javascript :variables javascript-fmt-tool 'web-beautify
+     (json :variables json-fmt-tool 'prettier)
+     (javascript :variables javascript-fmt-tool 'prettier
                  javascript-import-tool 'import-js
                  javascript-backend 'lsp
                  javascript-fmt-on-save t)
      (typescript :variables typescript-fmt-on-save t
                  typescript-fmt-tool 'typescript-formatter
                  typescript-backend 'lsp)
-     (html :variables web-fmt-tool 'web-beautify)
+     (html :variables web-fmt-tool 'prettier)
      (java :variables java-backend 'lsp)
      (scala :variables scala-indent:use-javadoc-style t
             scala-enable-eldoc t
