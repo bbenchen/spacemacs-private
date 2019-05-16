@@ -21,6 +21,7 @@
      cal-china-x
      engine-mode
      ensime
+     lsp-ui
      lsp-java
      dap-mode
      org
@@ -184,6 +185,11 @@
       (setq ensime-search-interface 'helm))
     (setq ensime-startup-notification nil)
     ))
+
+(defun mike/post-init-lsp-ui ()
+  (add-hook 'lsp-ui-mode-hook (lambda ()
+                                (setq lsp-ui-doc-enable nil)))
+  )
 
 (defun mike/post-init-lsp-java ()
   ;; (require 'lsp-java-boot)
