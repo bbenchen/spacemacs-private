@@ -39,20 +39,12 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     (ivy :variables ivy-enable-advanced-buffer-information t)
+     (auto-completion :variables auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t)
      (better-defaults :veriables
                       better-defaults-move-to-beginning-of-code-first t
                       better-defaults-move-to-end-of-code-first t)
-     (ranger :variables ranger-override-dired t)
-     colors
-     restclient
-     multiple-cursors
-     neotree
-     (syntax-checking :variables syntax-checking-enable-by-default nil
-                      syntax-checking-enable-tooltips nil)
-     (spell-checking :variables spell-checking-enable-by-default nil)
-     (spacemacs-layouts :variables layouts-enable-autosave nil
-                        layouts-autosave-delay 300)
+     emacs-lisp
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
@@ -60,19 +52,29 @@ This function should only modify configuration layer settings."
           magit-revert-buffers 'silent
           magit-refs-show-commit-count 'all
           magit-revision-show-gravatars nil)
+     (ivy :variables ivy-enable-advanced-buffer-information t)
+     (markdown :variables markdown-live-preview-engine 'vmd)
+     multiple-cursors
+     (org :veriables org-want-todo-bindings t)
+     (shell :variables
+            shell-default-shell 'shell
+            shell-default-term-shell "/bin/bash"
+            shell-default-height 30
+            shell-default-position 'bottom)
+     (spell-checking :variables spell-checking-enable-by-default nil)
+     (syntax-checking :variables syntax-checking-enable-by-default nil
+                      syntax-checking-enable-tooltips nil)
+     neotree
      (version-control :variables version-control-diff-tool 'diff-hl
                       version-control-diff-side 'left
                       version-control-global-margin t)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
-     (auto-completion :variables auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-snippets-in-popup t
-                      :disabled-for org markdown)
+     (ranger :variables ranger-override-dired t)
+     colors
+     restclient
+
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
           osx-command-as 'super)
-
-     (shell :veriables shell-default-height 30
-            shell-default-shell 'eshell
-            shell-default-position 'bottom)
 
      prettier
      import-js
@@ -81,10 +83,6 @@ This function should only modify configuration layer settings."
      docker
      nginx
 
-     (markdown :variables markdown-live-preview-engine 'vmd)
-     (org :veriables org-want-todo-bindings t)
-
-     emacs-lisp
      shell-scripts
      graphviz
      (plantuml :variables plantuml-jar-path "~/.spacemacs.d/plantuml.jar")
