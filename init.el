@@ -99,6 +99,7 @@ This function should only modify configuration layer settings."
                  typescript-fmt-tool 'typescript-formatter
                  typescript-backend 'lsp)
      (html :variables web-fmt-tool 'prettier)
+     (vue :variables vue-backend 'lsp)
      (java :variables java-backend 'lsp)
      (scala :variables scala-indent:use-javadoc-style t
             scala-enable-eldoc t
