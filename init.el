@@ -98,7 +98,10 @@ This function should only modify configuration layer settings."
      (typescript :variables typescript-fmt-on-save t
                  typescript-fmt-tool 'typescript-formatter
                  typescript-backend 'lsp)
-     (html :variables web-fmt-tool 'prettier)
+     (html :variables web-fmt-tool 'prettier
+           css-enable-lsp t
+           scss-enable-lsp t
+           less-enable-lsp t)
      (vue :variables vue-backend 'lsp)
      (java :variables java-backend 'lsp)
      (scala :variables scala-indent:use-javadoc-style t
@@ -390,6 +393,11 @@ It should only modify the values of Spacemacs settings."
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
    dotspacemacs-maximized-at-startup t
+
+   ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
+   ;; variable with `dotspacemacs-maximized-at-startup' in OSX to obtain
+   ;; borderless fullscreen. (default nil)
+   dotspacemacs-undecorated-at-startup t
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
