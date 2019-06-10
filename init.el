@@ -93,10 +93,11 @@ This function should only modify configuration layer settings."
      (json :variables json-fmt-tool 'prettier)
      (javascript :variables javascript-fmt-tool 'prettier
                  javascript-import-tool 'import-js
+                 javascript-repl 'nodejs
                  javascript-backend 'lsp
                  javascript-fmt-on-save t)
      (typescript :variables typescript-fmt-on-save t
-                 typescript-fmt-tool 'typescript-formatter
+                 typescript-fmt-tool 'prettier
                  typescript-backend 'lsp)
      (html :variables web-fmt-tool 'prettier
            css-enable-lsp t
