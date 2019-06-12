@@ -118,8 +118,9 @@ This function should only modify configuration layer settings."
      (rust :variables rust-backend 'lsp)
 
      mike
-     (chinese :packages youdao-dictionary fcitx
-              :variables chinese-enable-fcitx t
+     (chinese :variables chinese-default-input-method nil
+              chinese-enable-fcitx t
+              chinese-fcitx-use-dbus (spacemacs/system-is-linux)
               chinese-enable-youdao-dict t)
      )
 

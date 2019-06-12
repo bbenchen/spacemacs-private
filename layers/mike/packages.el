@@ -17,7 +17,6 @@
      recentf
      golden-ratio
      ranger
-     fcitx
      cal-china-x
      engine-mode
      ensime
@@ -126,15 +125,6 @@
 
     ;; 绑定ranger快捷键
     (spacemacs/set-leader-keys "ar" 'my-ranger)))
-
-;; fcitx优化
-(defun mike/post-init-fcitx ()
-  (setq fcitx-active-evil-states '(insert emacs hybrid))
-  (fcitx-aggressive-setup)
-  (fcitx-prefix-keys-add "M-m")
-  (when (spacemacs/system-is-linux)
-    (setq fcitx-use-dbus t))
-  )
 
 ;; 显示农历
 (defun mike/init-cal-china-x ()
