@@ -118,7 +118,8 @@ This function should only modify configuration layer settings."
      (rust :variables rust-backend 'lsp)
 
      mike
-     (chinese :variables chinese-default-input-method nil
+     (chinese :packages youdao-dictionary fcitx pangu-spacing org
+              :variables
               chinese-enable-fcitx t
               chinese-fcitx-use-dbus (spacemacs/system-is-linux)
               chinese-enable-youdao-dict t)
@@ -202,7 +203,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    ;; (default 5)
-   dotspacemacs-elpa-timeout 5
+   dotspacemacs-elpa-timeout 30
 
    ;; Set `gc-cons-threshold' and `gc-cons-percentage' when startup finishes.
    ;; This is an advanced option and should not be changed unless you suspect
@@ -247,7 +248,7 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner 'doge-inverted
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
