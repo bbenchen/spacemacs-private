@@ -1,0 +1,3 @@
+[submodule "vue"]
+	path = layers/vue
+	url = https://github.com/thanhvg/vue.git
