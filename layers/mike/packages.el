@@ -23,6 +23,7 @@
      lsp-ui
      lsp-java
      dap-mode
+     sql
      org
      (company-english-helper :location (recipe :fetcher github :repo "manateelazycat/company-english-helper"))
      (insert-translated-name :location (recipe :fetcher github :repo "manateelazycat/insert-translated-name"))
@@ -215,6 +216,10 @@
   (setq dap-java-test-runner (concat
                               (expand-file-name (locate-user-emacs-file "eclipse.jdt.ls/server/"))
                               "test-runner/junit-platform-console-standalone.jar"))
+  )
+
+(defun mike/post-init-sql ()
+  (setq sql-product 'mysql)
   )
 
 (defun mike/post-init-org ()
