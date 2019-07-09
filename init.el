@@ -78,7 +78,7 @@ This function should only modify configuration layer settings."
 
      prettier
      import-js
-     lsp
+     (lsp :variables lsp-ui-doc-enable nil)
      dap
      docker
      nginx
