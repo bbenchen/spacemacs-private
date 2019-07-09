@@ -27,6 +27,7 @@
      org
      (company-english-helper :location (recipe :fetcher github :repo "manateelazycat/company-english-helper"))
      (insert-translated-name :location (recipe :fetcher github :repo "manateelazycat/insert-translated-name"))
+     magit-todos
      ))
 
 ;; 优化evil
@@ -299,4 +300,9 @@
 
 (defun mike/init-insert-translated-name ()
   (use-package insert-translated-name
+    :init))
+
+(defun mike/init-magit-todos ()
+  (use-package magit-todos
+    :defer (spacemacs/defer)
     :init))
