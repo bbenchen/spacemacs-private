@@ -20,7 +20,6 @@
      cal-china-x
      engine-mode
      ensime
-     lsp-ui
      lsp-java
      dap-mode
      sql
