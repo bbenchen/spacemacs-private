@@ -111,7 +111,7 @@ This function should only modify configuration layer settings."
             scala-use-unicode-arrows t
             scala-backend 'scala-metals
             scala-auto-start-backend t)
-     (go :variables go-use-golangci-lint t
+     (go :variables go-linter 'golangci-lint
          gofmt-command "goimports"
          go-tab-width nil
          go-backend 'lsp)
