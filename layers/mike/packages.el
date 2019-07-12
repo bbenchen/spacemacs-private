@@ -298,5 +298,5 @@
 
 (defun mike/init-magit-todos ()
   (use-package magit-todos
-    :defer (spacemacs/defer)
-    :init))
+    :after magit
+    :hook (magit-status-mode . magit-todos-mode)))
