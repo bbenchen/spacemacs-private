@@ -118,7 +118,7 @@ This function should only modify configuration layer settings."
      (rust :variables rust-backend 'lsp)
 
      mike
-     (chinese :packages youdao-dictionary fcitx pangu-spacing org
+     (chinese :packages youdao-dictionary fcitx org
               :variables
               chinese-enable-fcitx t
               chinese-fcitx-use-dbus (spacemacs/system-is-linux)
