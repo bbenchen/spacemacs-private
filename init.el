@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
      multiple-cursors
      (org :veriables org-want-todo-bindings t)
      (shell :variables
-            shell-default-shell 'shell
+            shell-default-shell 'eshell
             shell-default-term-shell "/bin/bash"
             shell-default-height 30
             shell-default-position 'bottom)
