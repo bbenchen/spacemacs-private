@@ -297,8 +297,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 10.0
+   dotspacemacs-default-font '("Hack Nerd Font"
+                               :size 12
                                :weight normal
                                :width normal)
 
@@ -560,9 +560,9 @@ dump."
   ;; 解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
-      (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 12 14))
+      (spacemacs//set-monospaced-font "Hack Nerd Font" "Hiragino Sans GB" 10 12))
     (when (and (spacemacs/system-is-linux) window-system)
-      (spacemacs//set-monospaced-font "Source Code Pro" "WenQuanYi ZenHei Mono" 12 14)))
+      (spacemacs//set-monospaced-font "Hack Nerd Font" "WenQuanYi ZenHei Mono" 10 12)))
 
   (when (and (spacemacs/system-is-mswindows) window-system)
     (setq w32-pass-alt-to-system nil)
