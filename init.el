@@ -544,10 +544,9 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
-        '(("melpa-cn" . "https://elpa.emacs-china.org/melpa/")
-          ("melpa-stable-cn" . "https://elpa.emacs-china.org/melpa-stable/")
-          ("org-cn"   . "https://elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "https://elpa.emacs-china.org/gnu/")))
+        '(("melpa-cn" . "https://mirrors.cloud.tencent.com/elpa/melpa/")
+          ("org-cn"   . "https://mirrors.cloud.tencent.com/elpa/org/")
+          ("gnu-cn"   . "https://mirrors.cloud.tencent.com/elpa/gnu/")))
   )
 
 (defun dotspacemacs/user-load ()
