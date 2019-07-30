@@ -298,7 +298,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Hack Nerd Font"
-                               :size 12
+                               :size 10
                                :weight normal
                                :width normal)
 
