@@ -71,7 +71,7 @@ This function should only modify configuration layer settings."
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (ranger :variables ranger-override-dired t)
      colors
-     restclient
+     (restclient :variables restclient-use-org t)
 
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
           osx-command-as 'super)
