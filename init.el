@@ -582,6 +582,14 @@ dump."
     (doom-themes-neotree-config)
     (doom-themes-org-config))
 
+  (when (package-installed-p 'doom-modeline)
+    (setq doom-modeline-buffer-file-name-style 'relative-from-project)
+    (setq doom-modeline-major-mode-color-icon t)
+    (setq doom-modeline-minor-modes t)
+    (setq doom-modeline-enable-word-count nil)
+    (setq doom-modeline-indent-info t)
+    (setq doom-modeline-persp-name-icon t))
+
   (fset 'evil-visual-update-x-selection 'ignore)
 
   (spacemacs|diminish which-key-mode)
