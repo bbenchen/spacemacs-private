@@ -37,8 +37,6 @@
 
 ;; 修改填充列为120
 (setq-default fill-column 120)
-;;
-(setq-default column-enforce-column 120)
 
 ;; 窗口可居中的位置
 (setq recenter-positions '(top middle bottom))
