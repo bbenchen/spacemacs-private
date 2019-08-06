@@ -112,6 +112,8 @@ This function should only modify configuration layer settings."
             scala-backend 'scala-metals
             scala-auto-start-backend t)
      (go :variables go-linter 'golangci-lint
+         godoc-at-point-function 'godoc-gogetdoc
+         go-format-before-save t
          gofmt-command "goimports"
          go-tab-width nil
          go-backend 'lsp)
