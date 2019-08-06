@@ -152,11 +152,11 @@ This function should only modify configuration layer settings."
                                     eclim
                                     flycheck-eclim
                                     meghanada
-                                    tern
                                     tide
                                     fancy-battery
-                                    ensime
-                                    skewer-mode
+                                    spaceline
+                                    spaceline-all-the-icons
+                                    vim-powerline
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
