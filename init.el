@@ -106,11 +106,7 @@ This function should only modify configuration layer settings."
      (vue :variables vue-backend 'lsp)
      (java :variables java-backend 'lsp)
      (scala :variables scala-indent:use-javadoc-style t
-            scala-enable-eldoc t
-            scala-auto-insert-asterisk-in-comments t
-            scala-use-unicode-arrows t
-            scala-backend 'scala-metals
-            scala-auto-start-backend t)
+            scala-auto-insert-asterisk-in-comments t)
      (go :variables go-linter 'golangci-lint
          godoc-at-point-function 'godoc-gogetdoc
          go-format-before-save t

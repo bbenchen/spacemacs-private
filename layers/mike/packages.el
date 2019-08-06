@@ -19,7 +19,7 @@
      ranger
      cal-china-x
      engine-mode
-     ensime
+     lsp-mode
      lsp-java
      dap-mode
      sql
@@ -169,13 +169,9 @@
         :keybinding "s")
       )))
 
-(defun mike/post-init-ensime ()
-  (progn
-    (if (configuration-layer/layer-usedp 'ivy)
-        (setq ensime-search-interface 'ivy)
-      (setq ensime-search-interface 'helm))
-    (setq ensime-startup-notification nil)
-    ))
+(defun mike/post-init-lsp-mode ()
+  (setq lsp-metals-sbt-script "sbt")
+  )
 
 (defun mike/post-init-lsp-java ()
   ;; (require 'lsp-java-boot)
