@@ -567,14 +567,6 @@ dump."
                         charset
                         (font-spec :family "Microsoft Yahei" :size 12))))
 
-  ;; FIX: ls does not support --dired; see ‘dired-use-ls-dired’ for more details.
-  ;; Install coreutils via brew in mac
-  (when (spacemacs/system-is-mac)
-    (let ((gls (executable-find "gls")))
-      (when gls
-        (setq insert-directory-program gls
-              dired-listing-switches "-aBhl --group-directories-first"))))
-
   (when (package-installed-p 'doom-themes)
     (doom-themes-neotree-config)
     (doom-themes-org-config))

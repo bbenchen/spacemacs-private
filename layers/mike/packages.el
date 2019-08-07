@@ -27,6 +27,8 @@
      (company-english-helper :location (recipe :fetcher github :repo "manateelazycat/company-english-helper"))
      (insert-translated-name :location (recipe :fetcher github :repo "manateelazycat/insert-translated-name"))
      magit-todos
+     exec-path-from-shell
+     (cache-path-from-shell :location (recipe :fetcher github :repo "manateelazycat/cache-path-from-shell"))
      ))
 
 ;; 优化evil
@@ -296,3 +298,15 @@
   (use-package magit-todos
     :after magit
     :hook (magit-status-mode . magit-todos-mode)))
+
+(defun mike/init-exec-path-from-shell ()
+  (use-package exec-path-from-shell
+    :after cache-path-from-shell
+    :init (when (or (spacemacs/system-is-mac)
+              (spacemacs/system-is-linux)
+              (memq window-system '(x)))
+      (setq exec-path-from-shell-arguments (quote ("-l")))
+      (exec-path-from-shell-initialize))))
+
+(defun mike/init-cache-path-from-shell()
+  (use-package cache-path-from-shell))
