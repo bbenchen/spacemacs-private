@@ -297,7 +297,10 @@
 (defun mike/init-magit-todos ()
   (use-package magit-todos
     :after magit
-    :hook (magit-status-mode . magit-todos-mode)))
+    :hook (magit-status-mode . magit-todos-mode)
+    :config
+    (progn
+      (define-key magit-todos-section-map "j" nil))))
 
 (defun mike/init-exec-path-from-shell ()
   (use-package exec-path-from-shell
