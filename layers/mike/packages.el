@@ -306,10 +306,10 @@
   (use-package exec-path-from-shell
     :after cache-path-from-shell
     :init (when (or (spacemacs/system-is-mac)
-              (spacemacs/system-is-linux)
-              (memq window-system '(x)))
-      (setq exec-path-from-shell-arguments (quote ("-l")))
-      (exec-path-from-shell-initialize))))
+                    (spacemacs/system-is-linux)
+                    (memq window-system '(x)))
+            (setq exec-path-from-shell-arguments (quote ("-l")))
+            (exec-path-from-shell-initialize))))
 
 (defun mike/init-cache-path-from-shell()
   (use-package cache-path-from-shell))
