@@ -55,6 +55,7 @@
     (setq recentf-exclude
           '("COMMIT_MSG"
             "COMMIT_EDITMSG"
+            "MERGE_MSG"
             "github.*txt$"
             "/tmp/"
             "/ssh:"
