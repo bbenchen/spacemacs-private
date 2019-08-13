@@ -69,6 +69,11 @@
         (unless (file-exists-p dir)
           (make-directory dir t))))))
 
+(electric-pair-mode t)
+;; https://www.reddit.com/r/emacs/comments/4xhxfw/how_to_tune_the_behavior_of_eletricpairmode/
+(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+(show-paren-mode t)
+
 (setq backup-by-copying t
       make-backup-files nil
       create-lockfiles nil)
@@ -80,3 +85,19 @@
 (add-hook 'protobuf-mode-hook 'display-line-numbers-mode)
 
 (add-hook 'conf-mode-hook 'display-line-numbers-mode)
+
+(setq spacemacs--counsel-commands
+  '(;; --line-number forces line numbers (disabled by default on windows)
+    ;; no --vimgrep because it adds column numbers that wgrep can't handle
+    ;; see https://github.com/syl20bnr/spacemacs/pull/8065
+    ("rg" . "rg  --smart-case --ignore-file '.rgignore' --no-heading --color never --line-number --max-columns 220 %s %S .")
+    ("ag" . "ag --nocolor --nogroup %s %S .")
+    ("pt" . "pt -e --nocolor --nogroup %s %S .")
+    ("ack" . "ack --nocolor --nogroup %s %S .")
+    ("grep" . "grep -nrP %s %S .")))
+
+;; search chinse must add this line
+;; https://emacs-china.org/t/emacs-helm-ag/6764
+(if (spacemacs/system-is-mswindows)
+    (modify-coding-system-alist 'process "rg" '(utf-8 . chinese-gbk-dos))
+  (modify-coding-system-alist 'process "rg" '(utf-8 . utf-8)))
