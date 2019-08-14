@@ -29,6 +29,7 @@
      magit-todos
      exec-path-from-shell
      (cache-path-from-shell :location (recipe :fetcher github :repo "manateelazycat/cache-path-from-shell"))
+     lispy
      ))
 
 ;; 优化evil
@@ -314,3 +315,15 @@
 
 (defun mike/init-cache-path-from-shell()
   (use-package cache-path-from-shell))
+
+(defun mike/init-lispy ()
+  (use-package lispy
+    :defer t
+    :init
+    (progn
+      (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
+      (add-hook 'ielm-mode-hook (lambda () (lispy-mode 1)))
+      )
+    :config
+    (progn
+      (spacemacs|hide-lighter lispy-mode))))
