@@ -69,10 +69,14 @@
         (unless (file-exists-p dir)
           (make-directory dir t))))))
 
-(electric-pair-mode t)
+;; (electric-pair-mode t)
 ;; https://www.reddit.com/r/emacs/comments/4xhxfw/how_to_tune_the_behavior_of_eletricpairmode/
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-(show-paren-mode t)
+;; (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+;; (show-paren-mode t)
+
+;; https://github.com/Fuco1/smartparens/issues/985
+(define-key java-mode-map "(" nil)
+(define-key java-mode-map "{" nil)
 
 (setq backup-by-copying t
       make-backup-files nil
@@ -90,7 +94,7 @@
   '(;; --line-number forces line numbers (disabled by default on windows)
     ;; no --vimgrep because it adds column numbers that wgrep can't handle
     ;; see https://github.com/syl20bnr/spacemacs/pull/8065
-    ("rg" . "rg  --smart-case --ignore-file '.rgignore' --no-heading --color never --line-number --max-columns 220 %s %S .")
+    ("rg" . "rg  --smart-case --no-heading --color never --line-number --max-columns 220 %s %S .")
     ("ag" . "ag --nocolor --nogroup %s %S .")
     ("pt" . "pt -e --nocolor --nogroup %s %S .")
     ("ack" . "ack --nocolor --nogroup %s %S .")
