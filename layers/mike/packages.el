@@ -19,6 +19,7 @@
      ranger
      cal-china-x
      engine-mode
+     (java-mode :location built-in)
      lsp-mode
      lsp-java
      dap-mode
@@ -172,6 +173,15 @@
         "https://stackoverflow.com/search?q=%s"
         :keybinding "s")
       )))
+
+(defun mike/post-init-java-mode ()
+  (when (not (version< emacs-version "27"))
+    ;; https://github.com/Fuco1/smartparens/issues/
+    (define-key java-mode-map "(" nil)
+    (define-key java-mode-map ")" nil)
+    (define-key java-mode-map "{" nil)
+    (define-key java-mode-map "}" nil)
+    ))
 
 (defun mike/post-init-lsp-mode ()
   (setq lsp-metals-sbt-script "sbt")

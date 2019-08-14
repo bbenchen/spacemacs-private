@@ -74,10 +74,6 @@
 ;; (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 ;; (show-paren-mode t)
 
-;; https://github.com/Fuco1/smartparens/issues/985
-(define-key java-mode-map "(" nil)
-(define-key java-mode-map "{" nil)
-
 (setq backup-by-copying t
       make-backup-files nil
       create-lockfiles nil)
