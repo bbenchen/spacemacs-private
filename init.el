@@ -110,7 +110,7 @@ This function should only modify configuration layer settings."
      (go :variables go-linter 'golangci-lint
          godoc-at-point-function 'godoc-gogetdoc
          go-format-before-save t
-         gofmt-command "goimports"
+         gofmt-command "gofumports"
          go-tab-width nil
          go-backend 'lsp)
      (rust :variables rust-backend 'lsp)
