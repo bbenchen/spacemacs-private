@@ -153,6 +153,10 @@ This function should only modify configuration layer settings."
                                     spaceline
                                     spaceline-all-the-icons
                                     vim-powerline
+                                    lorem-ipsum
+                                    helm-make
+                                    rainbow-delimiters
+                                    smeargle
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
