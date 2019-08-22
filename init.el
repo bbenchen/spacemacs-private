@@ -9,7 +9,7 @@ This function should only modify configuration layer settings."
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
-   dotspacemacs-distribution 'spacemacs
+   dotspacemacs-distribution 'spacemacs-base
 
    ;; Lazy installation of layers (i.e. layers are installed only when a file
    ;; with a supported type is opened). Possible values are `all', `unused'
@@ -72,6 +72,19 @@ This function should only modify configuration layer settings."
      (ranger :variables ranger-override-dired t)
      colors
      (restclient :variables restclient-use-org t)
+     (spacemacs-completion :packages default-ivy-config)
+     (spacemacs-layouts :variables spacemacs-layouts-restrict-spc-tab t)
+     spacemacs-editing
+     spacemacs-editing-visual
+     ;; spacemacs-evil
+     ;; spacemacs-language
+     (spacemacs-misc :packages request)
+     spacemacs-modeline
+     spacemacs-navigation
+     spacemacs-org
+     spacemacs-project
+     spacemacs-purpose
+     spacemacs-visual
 
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
           osx-command-as 'super)
@@ -130,7 +143,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(helm all-the-icons)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -144,6 +157,7 @@ This function should only modify configuration layer settings."
                                     git-gutter-fringe
                                     git-gutter-fringe+
                                     magit-svn
+                                    magit-flow
                                     company-emacs-eclim
                                     eclim
                                     flycheck-eclim
@@ -155,8 +169,21 @@ This function should only modify configuration layer settings."
                                     vim-powerline
                                     lorem-ipsum
                                     helm-make
-                                    rainbow-delimiters
                                     smeargle
+                                    eyebrowse
+                                    zoom-frm
+                                    symbol-overlay
+                                    writeroom-mode
+                                    column-enforce-mode
+                                    highlight-indentation
+                                    rainbow-delimiters
+                                    helm-c-yasnippet
+                                    helm-company
+                                    helm-purpose
+                                    helm-git-grep
+                                    helm-gitignore
+                                    helm-css-scss
+                                    restclient-helm
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -594,7 +621,8 @@ dump."
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
-  (global-hungry-delete-mode t)
+  (when (package-installed-p 'hungry-delete)
+    (global-hungry-delete-mode t))
 
   ;; Spacemacs can be used as the $EDITOR (or $GIT_EDITOR) for editing git commits messages.
   ;; (global-git-commit-mode t)
@@ -604,6 +632,20 @@ dump."
   (setq inhibit-compacting-font-caches t)
 
   (setq auto-save-default nil)
+
+  (setq sqlfmt-options '("--align" "--tab-width" "2" "--use-spaces"))
+
+  ;; helm config
+  (setq helm-no-header t)
+  (setq helm-position 'bottom)
+  (defvar spacemacs-helm-display-help-buffer-regexp '("*.*Helm.*Help.**"))
+  (defvar spacemacs-helm-display-buffer-regexp
+    `("*.*helm.**"
+      (display-buffer-in-side-window)
+      (inhibit-same-window . t)
+      (side . ,helm-position)
+      (window-width . 0.6)
+      (window-height . 0.4)))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
