@@ -14,6 +14,7 @@
 (defconst mike-packages
   '(
      evil
+     evil-multiedit
      recentf
      golden-ratio
      ranger
@@ -51,6 +52,10 @@
 
     )
   )
+
+(defun mike/init-evil-multiedit ()
+  (use-package evil-multiedit
+    :config (evil-multiedit-default-keybinds)))
 
 (defun mike/post-init-recentf ()
   (progn
