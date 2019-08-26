@@ -53,7 +53,7 @@ This function should only modify configuration layer settings."
           magit-refs-show-commit-count 'all
           magit-revision-show-gravatars nil)
      (ivy :variables ivy-enable-advanced-buffer-information t)
-     (markdown :variables markdown-live-preview-engine 'vmd)
+     (markdown :variables markdown-command "pandoc")
      (org :veriables org-want-todo-bindings t)
      (shell :variables
             shell-default-shell 'eshell
