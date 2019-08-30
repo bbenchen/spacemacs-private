@@ -53,8 +53,9 @@ This function should only modify configuration layer settings."
           magit-refs-show-commit-count 'all
           magit-revision-show-gravatars nil)
      (ivy :variables ivy-enable-advanced-buffer-information t)
-     (markdown :variables markdown-live-preview-engine 'vmd)
-     (org :veriables org-want-todo-bindings t)
+     (markdown :variables markdown-command "pandoc")
+     (org :veriables org-want-todo-bindings t
+          org-enable-hugo-support t)
      (shell :variables
             shell-default-shell 'eshell
             shell-default-term-shell "/bin/bash"
@@ -183,6 +184,9 @@ This function should only modify configuration layer settings."
                                     helm-gitignore
                                     helm-css-scss
                                     restclient-helm
+                                    ac-ispell
+                                    auto-complete
+                                    auto-dictionary
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -572,6 +576,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
         '(("melpa-cn" . "https://mirrors.cloud.tencent.com/elpa/melpa/")
           ("org-cn"   . "https://mirrors.cloud.tencent.com/elpa/org/")
           ("gnu-cn"   . "https://mirrors.cloud.tencent.com/elpa/gnu/")))
+
+  (setq byte-compile-warnings '(not obsolete))
   )
 
 (defun dotspacemacs/user-load ()
@@ -634,17 +640,17 @@ dump."
 
   (setq sqlfmt-options '("--align" "--tab-width" "2" "--use-spaces"))
 
+  ;; fix for the magit popup doesn't have a q keybindings
+  (with-eval-after-load 'transient
+    (transient-bind-q-to-quit))
+
   ;; helm config
-  (setq helm-no-header t)
-  (setq helm-position 'bottom)
-  (defvar spacemacs-helm-display-help-buffer-regexp '("*.*Helm.*Help.**"))
-  (defvar spacemacs-helm-display-buffer-regexp
-    `("*.*helm.**"
-      (display-buffer-in-side-window)
-      (inhibit-same-window . t)
-      (side . ,helm-position)
-      (window-width . 0.6)
-      (window-height . 0.4)))
+  (setq helm-display-header-line nil
+        helm-split-window-inside-p t
+        helm-always-two-windows t
+        helm-echo-input-in-header-line t)
+  (with-eval-after-load 'helm
+    (spacemacs|hide-lighter helm-mode))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
