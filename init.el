@@ -103,7 +103,8 @@ This function should only modify configuration layer settings."
           sql-auto-indent nil)
      protobuf
      yaml
-     (json :variables json-fmt-tool 'prettier)
+     (json :variables json-fmt-tool 'prettier
+           json-fmt-on-save t)
      (javascript :variables javascript-fmt-tool 'prettier
                  javascript-import-tool 'import-js
                  javascript-repl 'nodejs
@@ -120,7 +121,7 @@ This function should only modify configuration layer settings."
      (java :variables java-backend 'lsp)
      (scala :variables scala-indent:use-javadoc-style t
             scala-auto-insert-asterisk-in-comments t)
-     (go :variables go-linter 'golangci-lint
+     (go :variables go-use-golangci-lint t
          godoc-at-point-function 'godoc-gogetdoc
          go-format-before-save t
          gofmt-command "gofumports"

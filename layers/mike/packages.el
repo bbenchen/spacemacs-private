@@ -55,6 +55,7 @@
 
 (defun mike/init-evil-multiedit ()
   (use-package evil-multiedit
+    :init (setq iedit-toggle-key-default nil)
     :config (evil-multiedit-default-keybinds)))
 
 (defun mike/post-init-recentf ()
@@ -180,17 +181,16 @@
       )))
 
 (defun mike/post-init-java-mode ()
-  (when (not (version< emacs-version "27"))
+  (when (and (not (version< emacs-version "27"))
+             (package-installed-p 'smartparens))
     ;; https://github.com/Fuco1/smartparens/issues/
     (define-key java-mode-map "(" nil)
     (define-key java-mode-map ")" nil)
     (define-key java-mode-map "{" nil)
-    (define-key java-mode-map "}" nil)
-    ))
+    (define-key java-mode-map "}" nil)))
 
 (defun mike/post-init-lsp-mode ()
-  (setq lsp-metals-sbt-script "sbt")
-  )
+  (setq lsp-metals-sbt-script "sbt"))
 
 (defun mike/post-init-lsp-java ()
   ;; (require 'lsp-java-boot)
