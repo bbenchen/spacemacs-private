@@ -1,3 +1,6 @@
 [submodule "vue"]
 	path = layers/vue
 	url = https://github.com/thanhvg/vue.git
+[submodule "rime"]
+	path = rime
+	url = https://github.com/cxb811201/rime-wubi86-jidian.git

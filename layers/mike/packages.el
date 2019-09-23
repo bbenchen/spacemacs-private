@@ -255,6 +255,9 @@
     (require 'epa-file)
     (setq epa-file-select-keys 0)
     (setq epa-file-cache-passphrase-for-symmetric-encryption t)
+    ;; With GPG 2.1, this forces gpg-agent to use the Emacs minibuffer to
+    ;; prompt for the key passphrase.
+    (setq epa-pinentry-mode 'loopback)
 
     ;; 支持<s+TAB快速插入代码块
     (require 'org-tempo)
